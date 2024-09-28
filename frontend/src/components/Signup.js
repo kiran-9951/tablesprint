@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Signup.css'; // Ensure this file contains the same styles as Login.css
+import { useNavigate,Link } from 'react-router-dom';
+import './Signup.css';
 
-const Signup = () => {
+const Signup = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -22,7 +22,8 @@ const Signup = () => {
       const data = await response.json();
 
       if (response.ok) {
-        navigate('/login');
+        setIsAuthenticated(true); // Update the authentication state
+        navigate('/login'); // Navigate to the dashboard
         alert(data.message);
       } else {
         setError(data.message);
@@ -34,53 +35,49 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
-      <div className="card">
-        <div className="card-header">
-          <h2>Signup</h2>
+      <h2 className="card-header">Signup</h2>
+      <form onSubmit={handleSignup}>
+        <div className="form-group">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            className="form-control"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
         </div>
-        <div className="card-body">
-          <form onSubmit={handleSignup}>
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                className="form-control"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                className="form-control"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                className="form-control"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit" className="btn">Signup</button>
-          </form>
-          {error && <div className="alert">{error}</div>}
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            className="form-control"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </div>
-      </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            className="form-control"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className="btn">Signup</button>
+        <p> if already have an account , <Link to="/login">login</Link></p>
+
+      </form>
+      {error && <p className="alert">{error}</p>}
     </div>
   );
 };

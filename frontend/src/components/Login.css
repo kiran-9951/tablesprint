@@ -1,58 +1,64 @@
-
-
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Full viewport height */
-    background-color: #f8f9fa; 
-  }
-  
-  .card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px; /* Fixed width */
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .card-header {
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-control {
-    width: 100%; /* Full width */
-    padding: 10px;
-    border: 1px solid #ced4da; /* Light gray border */
-    border-radius: 4px;
-  }
-  
-  .form-control:focus {
-    border-color: #80bdff; /* Blue border on focus */
-    outline: none; /* Remove default outline */
-  }
-  
-  .btn {
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-  }
-  
-  .alert {
-    margin-top: 15px;
-    color: red; /* Error message color */
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #afc2d6;
+}
+
+.card {
+  /* background-color: white; */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px; /* Adjusted width */
+  padding: 25px;
+  text-align: center;
+}
+
+.card-header {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left; /* Align labels and inputs */
+}
+
+.form-control {
+  width: 100%; /* Full width */
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.form-control:focus {
+  border-color: #80bdff; /* Blue border on focus */
+  outline: none; /* Remove default outline */
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px; /* Adjusted padding */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.alert {
+  margin-top: 15px;
+  color: #e74c3c; /* Red color for error message */
+  font-weight: bold;
+}
+
+.card-body p {
+  margin-top: 10px;
+}
+

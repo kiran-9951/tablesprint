@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
-import './Login.css'; // Optional: for custom styles
-import { useNavigate } from 'react-router-dom';
-const Login = () => {
+import './Login.css';
+import { useNavigate,Link } from 'react-router-dom';
+
+const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const navigate=useNavigate
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setMessage(''); 
+    setMessage('');
 
-   
     if (!email || !password) {
       return setMessage("Both fields are required");
     }
-
-    const userData = { email, password };
 
     try {
       const response = await fetch('http://localhost:5050/api/auth/login', {
@@ -24,17 +22,15 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(userData),
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        navigate("/dashboard")
+        setIsAuthenticated(true); // Update the authentication state
+        navigate('/dashboard'); // Navigate to the dashboard
         setMessage('Logged in successfully!');
-        
-      
-       
       } else {
         setMessage(data.message || 'Login failed');
       }
@@ -75,6 +71,8 @@ const Login = () => {
               />
             </div>
             <button type="submit" className="btn btn-primary">Login</button>
+            <p>if don't have an account  <Link to="/signup">Register</Link></p>
+
           </form>
           {message && <div className="alert">{message}</div>}
         </div>

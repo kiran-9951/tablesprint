@@ -1,64 +1,65 @@
-/* General Container Styles */
 .signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Full viewport height */
-    background-color: #f8f9fa; /* Light background */
-}
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #afc2d6;
 
-/* Card Styles */
+  }
+  
 .card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px; /* Fixed width */
-    padding: 20px;
-    text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px; /* Adjusted width */
+  padding: 25px;
+  text-align: center;
 }
 
-/* Card Header */
 .card-header {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-/* Form Group */
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
+  text-align: left; /* Align labels and inputs */
 }
 
-/* Input Control */
 .form-control {
-    width: 100%; /* Full width */
-    padding: 10px;
-    border: 1px solid #ced4da; /* Light gray border */
-    border-radius: 4px;
+  width: 100%; /* Full width */
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
 }
 
-/* Input Focus State */
 .form-control:focus {
-    border-color: #80bdff; /* Blue border on focus */
-    outline: none; /* Remove default outline */
+  border-color: #80bdff; /* Blue border on focus */
+  outline: none; /* Remove default outline */
 }
 
-/* Button Styles */
 .btn {
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px; /* Adjusted padding */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
-/* Button Hover State */
 .btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3;
 }
 
-/* Alert Message */
 .alert {
-    margin-top: 15px;
-    color: red; /* Error message color */
+  margin-top: 15px;
+  color: #e74c3c; /* Red color for error message */
+  font-weight: bold;
 }
+
+.card-body p {
+  margin-top: 10px;
+}
+
